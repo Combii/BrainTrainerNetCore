@@ -1,0 +1,31 @@
+@import "../../palette";
+
+.square {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+
+    p {
+        font-size: 6em;
+        font-family: "Comic Sans MS", sans-serif;
+    }
+}
+
+
+.gameStarted:hover{
+    background-color: $color3;
+    color:white;
+    cursor: pointer;
+}
+
+@media(max-width: 650px) {
+
+        .square p {
+            font-size: 4em;
+        }
+
+}
+

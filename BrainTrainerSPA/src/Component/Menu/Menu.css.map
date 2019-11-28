@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,8EAA8E;AAE9E,SAAS;AAOT,SAAS;ACPT,KAAM;EACJ,MAAM,EAAE,iBAAgB;EACxB,gBAAgB,EDOP,OAAmB;ECN5B,KAAK,EDOK,OAAsB;ECNhC,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,cAAc,EAAE,MAAM;EACtB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,SAAS;EACjB,aAAa,EAAE,IAAI",
+"sources": ["../../_palette.scss","Menu.scss"],
+"names": [],
+"file": "Menu.css"
+}

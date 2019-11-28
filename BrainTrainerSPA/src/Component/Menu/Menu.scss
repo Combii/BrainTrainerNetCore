@@ -1,0 +1,13 @@
+@import "../../palette";
+
+.menu {
+  border: 2px solid $black;
+  background-color: $darkBlue;
+  color: $lightBlue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+  margin: 70px auto;
+  border-radius: 10px;
+}

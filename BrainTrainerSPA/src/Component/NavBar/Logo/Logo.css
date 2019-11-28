@@ -1,0 +1,17 @@
+.Logo {
+    height: 80%;
+    box-sizing: border-box;
+    padding: 0 15px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+.Logo img {
+    height: 100%;
+    margin: 0 10px;
+}

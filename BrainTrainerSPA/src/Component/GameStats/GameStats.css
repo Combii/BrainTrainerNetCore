@@ -1,0 +1,25 @@
+/* Coolors Exported Palette - coolors.co/161925-23395b-85c7f2-406e8e-cbf7ed */
+/* HSL */
+/* RGB */
+.question {
+  position: relative;
+  display: flex;
+  background-color: #23395b; }
+  .question h1 {
+    font-size: 3rem; }
+
+.statContainer {
+  flex: 1;
+  text-align: center; }
+
+.mid {
+  flex: 3; }
+
+.borderLeft {
+  border-left: 1px solid #161925; }
+
+@media (max-width: 650px) {
+  .question h1 {
+    font-size: 2rem; } }
+
+/*# sourceMappingURL=GameStats.css.map */

@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "mappings": "AAAA,kBAAmB;EACjB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,YAAY;EAC7B,KAAK,EAAE,GAAG",
+  "sources": [
+    "FractionQuestion.scss"
+  ],
+  "names": [],
+  "file": "FractionQuestion.css"
+}

@@ -1,0 +1,23 @@
+@import "../../palette";
+
+.button {
+  font-size: 20px;
+  background-color: $lightBlue;
+  color: $black;
+  border: none;
+  border-bottom: 5px solid darken($lightBlue,5);
+  padding: 1em;
+  width: 8em;
+  margin-bottom: 30px;
+  border-radius: 2px;
+}
+
+.button:focus {
+  outline: 0;
+}
+
+.button:hover{
+  background-color: darken($lightBlue,5);
+  border-bottom: 5px solid darken($lightBlue,10);
+}
+

@@ -1,0 +1,80 @@
+/* Coolors Exported Palette - coolors.co/161925-23395b-85c7f2-406e8e-cbf7ed */
+/* HSL */
+/* RGB */
+.modal {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background-color: #23395b;
+  height: 350px;
+  width: 300px;
+  border: 2px solid black;
+  z-index: 100; }
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 2em;
+  height: 70%; }
+
+.overlay {
+  position: absolute;
+  background-color: black;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99; }
+
+.overlay-entering {
+  animation: fadeIn 0.5s forwards; }
+
+.overlay-entered {
+  opacity: 0.7; }
+
+.overlay-exiting {
+  animation: fadeOut 0.5s forwards; }
+
+.modal-entering {
+  animation: jumpIn 0.5s forwards; }
+
+.modal-entered {
+  top: 50%; }
+
+.modal-exiting {
+  animation: jumpOut 0.5s forwards; }
+
+@keyframes jumpIn {
+  0% {
+    opacity: 0;
+    top: -40%; }
+  75% {
+    opacity: 0.95;
+    top: 55%; }
+  100% {
+    top: 50%; } }
+@keyframes jumpOut {
+  0% {
+    top: 50%; }
+  25% {
+    opacity: 0.95;
+    top: 55%; }
+  100% {
+    opacity: 0;
+    top: -40%; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 0.7; } }
+@keyframes fadeOut {
+  from {
+    opacity: 0.7; }
+  to {
+    opacity: 0; } }
+
+/*# sourceMappingURL=Modal.css.map */

@@ -1,6 +1,6 @@
 using System;
 
-namespace BrainTrainerAPI
+namespace DatingApp.API
 {
     public class WeatherForecast
     {

@@ -6,3 +6,10 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
+.vscode/launch.json
+.vscode/tasks.json
+BrainTrainerAPI/obj/Debug/netcoreapp3.0/BrainTrainerAPI.AssemblyInfo.cs
+BrainTrainerAPI/obj/Debug/netcoreapp3.0/BrainTrainerAPI.AssemblyInfoInputs.cache
+BrainTrainerAPI/obj/Debug/netcoreapp3.0/BrainTrainerAPI.assets.cache
+BrainTrainerAPI/obj/Debug/netcoreapp3.0/BrainTrainerAPI.csprojAssemblyReference.cache
+BrainTrainerAPI/obj/Debug/netcoreapp3.0/project.razor.json

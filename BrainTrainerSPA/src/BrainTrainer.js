@@ -23,6 +23,11 @@ class BrainTrainer extends Component {
       }))
   }
 
+  logIn = () => {
+      
+      this.props.history.push('/menu')
+  }
+
   difficultySelected = difficulty => {
     this.props.onDifficultySelected(difficulty);
     this.props.history.push('/braintrainer');
@@ -39,7 +44,8 @@ class BrainTrainer extends Component {
         component: Login,
         componentProps: {
             isLogin: this.state.isLoginMode,
-            toggleLogin : this.toggleLoginMode
+            toggleLogin : this.toggleLoginMode,
+            login: this.logIn
         }
       },
       {

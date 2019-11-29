@@ -2,7 +2,7 @@ import React from 'react';
 import './Login.css';
 import Button from '../../UI/Button/Button';
 
-const Login = ({ isLogin, toggleLogin }) => {
+const Login = ({ isLogin, toggleLogin, login }) => {
   return (
     <div className='root-container'>
       <div className='box-container'>
@@ -33,7 +33,7 @@ const Login = ({ isLogin, toggleLogin }) => {
               {isLogin ?  'Not a member yet?' : 'Already a member?'}
             </button>
 
-            <button type='button' className='login-btn'>
+            <button type='button' className='login-btn' onClick={login}>
               {isLogin ? 'Login' : 'Sign up'}
             </button>
           </div>

@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:46351",
-      "sslPort": 44366
+      "applicationUrl": "http://localhost:33637",
+      "sslPort": 44352
     }
   },
   "profiles": {
@@ -17,11 +17,11 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DatingApp.API": {
+    "BrainTrainerAPI": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
-      "applicationUrl": "http://localhost:5000",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

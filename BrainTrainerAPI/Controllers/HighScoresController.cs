@@ -1,11 +1,12 @@
 using System.Threading.Tasks;
 using BrainTrainerAPI.Data;
+using BrainTrainerAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BrainTrainerAPI.Controllers
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     public class HighScoresController : ControllerBase
@@ -23,7 +24,7 @@ namespace BrainTrainerAPI.Controllers
 
             return Ok(values);
         }
-        
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetHighscore(int id)
         {
@@ -31,5 +32,17 @@ namespace BrainTrainerAPI.Controllers
 
             return Ok(value);
         }
+
+        [HttpPost]
+        public async Task<ActionResult<HighScore>> PostHighscore(HighScore highScore)
+        {
+            _context.HighScores.Add(highScore);
+            await _context.SaveChangesAsync();
+
+            //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
+            return CreatedAtAction(nameof(GetHighscore), new { id = highScore.Id }, highScore);
+        }
+
+
     }
 }

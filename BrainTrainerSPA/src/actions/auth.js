@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = '';
+const baseUrl = 'http://localhost:5000';
 
 export const login = (token) => ({
     type: 'LOGIN',

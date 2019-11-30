@@ -52,3 +52,13 @@
 /Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/obj/Debug/netcoreapp3.0/BrainTrainerAPI.dll
 /Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/obj/Debug/netcoreapp3.0/BrainTrainerAPI.pdb
 /Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/AutoMapper.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Logging.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Protocols.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Tokens.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Newtonsoft.Json.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/System.IdentityModel.Tokens.Jwt.dll

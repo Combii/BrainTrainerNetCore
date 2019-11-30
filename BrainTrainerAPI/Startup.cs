@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using AutoMapper;
 
 namespace BrainTrainerAPI
 {
@@ -53,6 +54,8 @@ namespace BrainTrainerAPI
                      ValidateAudience = false
                  };
              });
+
+             services.AddAutoMapper(typeof(DataContext).Assembly);
 
              services.AddMvc(options => 
                 {

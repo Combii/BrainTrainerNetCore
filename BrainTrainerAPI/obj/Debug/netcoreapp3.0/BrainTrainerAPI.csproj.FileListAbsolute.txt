@@ -62,3 +62,4 @@
 /Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Microsoft.IdentityModel.Tokens.dll
 /Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/Newtonsoft.Json.dll
 /Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/Combii/Desktop/BrainTrainerNetCore/BrainTrainerAPI/bin/Debug/netcoreapp3.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll

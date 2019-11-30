@@ -10,7 +10,7 @@
 
     export const startLogin = (password,username) => {
         return dispatch => {
-            axios.post(baseUrl+'/api/auth/login',{
+            axios.post(baseUrl+'/api/auth/register',{
                 username,
                 password
             }).then((data) => dispatch(login(data.data.token)))

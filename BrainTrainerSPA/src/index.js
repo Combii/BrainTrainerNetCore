@@ -4,14 +4,18 @@ import './index.scss';
 import BrainTrainer from './BrainTrainer';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
-import {createStore} from "redux";
+import {createStore, applyMiddleware, compose, combineReducers} from "redux";
 import Provider from "react-redux/es/components/Provider";
 import braintrainer from "./store/reducers/braintrainer";
+import thunk from 'redux-thunk';
+import auth from './store/reducers/auth';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const reducers = combineReducers({braintrainer,auth})
 
 const store = createStore(
-    braintrainer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    reducers,
+    composeEnhancers(applyMiddleware(thunk)),
 );
 
 

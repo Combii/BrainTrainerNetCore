@@ -6,3 +6,10 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
+.vscode/launch.json
+.vscode/tasks.json
+BrainTrainerAPI/bin
+BrainTrainerAPI/obj
+
+BrainTrainerAPI/datingapp.db
+

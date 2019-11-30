@@ -30,7 +30,7 @@ class GameSection extends Component {
             toHighscores: false
         };
 
-        this.generator = new QuestionGenerator(30, 40)
+        this.generator = new QuestionGenerator(this.props.difficulty)
     }
 
 
@@ -86,9 +86,8 @@ class GameSection extends Component {
 
     setNewNumbersAndQuestion() {
 
-        this.generator.generateNumbers();
+
         this.generator.generateQuestion();
-        this.generator.incrementRange();
 
         const numbers = this.generator.numbers;
 

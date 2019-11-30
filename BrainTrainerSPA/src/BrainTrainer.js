@@ -7,6 +7,7 @@ import HighScoreList from './Component/HighScore/HighScoreList';
 import asyncComponent from './hoc/asyncComponent';
 import { loadLocalHighscores } from './Utils/localHighscores';
 import Login from './Component/Login/Login';
+import { startLogin } from './actions/auth';
 
 const asyncGameSection = asyncComponent(() =>
   import('./Container/GameSection')
@@ -14,19 +15,18 @@ const asyncGameSection = asyncComponent(() =>
 
 class BrainTrainer extends Component {
   state = {
-    isLoginMode:false
+    isLoginMode: false
   };
 
   toggleLoginMode = () => {
-      this.setState((prev,props) => ({
-          isLoginMode : !prev.isLoginMode
-      }))
-  }
+    this.setState((prev, props) => ({
+      isLoginMode: !prev.isLoginMode
+    }));
+  };
 
   logIn = () => {
-      
-      this.props.history.push('/menu')
-  }
+    this.props.history.push('/menu');
+  };
 
   difficultySelected = difficulty => {
     this.props.onDifficultySelected(difficulty);
@@ -43,9 +43,10 @@ class BrainTrainer extends Component {
         path: '/',
         component: Login,
         componentProps: {
-            isLogin: this.state.isLoginMode,
-            toggleLogin : this.toggleLoginMode,
-            login: this.logIn
+          isLogin: this.state.isLoginMode,
+          toggleLogin: this.toggleLoginMode,
+          login: this.logIn,
+          onLoginClicked: this.props.onLoginClicked
         }
       },
       {
@@ -89,7 +90,9 @@ class BrainTrainer extends Component {
 
 const mapDispatchToProps = dispatch => ({
   onDifficultySelected: difficulty =>
-    dispatch({ difficulty, type: 'SET_DIFFICULTY' })
+    dispatch({ difficulty, type: 'SET_DIFFICULTY' }),
+  onLoginClicked: (username, password) =>
+    dispatch(startLogin(username, password))
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(BrainTrainer));

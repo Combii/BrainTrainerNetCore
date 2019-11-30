@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
+import { connect } from 'react-redux';
 import Button from '../../UI/Button/Button';
 
-const Login = ({ isLogin, toggleLogin, login }) => {
+const Login = ({ isLogin, toggleLogin, login, onLoginClicked }) => {
+  const [passWord, setPassword] = useState('');
+  const [userName, setUsername] = useState('');
   return (
     <div className='root-container'>
       <div className='box-container'>
@@ -16,6 +19,7 @@ const Login = ({ isLogin, toggleLogin, login }) => {
                 name='username'
                 className='login-input'
                 placeholder='Username'
+                onChange={e => setUsername(e.target.value)}
               />
             </div>
 
@@ -26,14 +30,19 @@ const Login = ({ isLogin, toggleLogin, login }) => {
                 name='password'
                 className='login-input'
                 placeholder='Password'
+                onChange={e => setPassword(e.target.value)}
               />
             </div>
 
             <button className='already-a-member' onClick={toggleLogin}>
-              {isLogin ?  'Not a member yet?' : 'Already a member?'}
+              {isLogin ? 'Not a member yet?' : 'Already a member?'}
             </button>
 
-            <button type='button' className='login-btn' onClick={login}>
+            <button
+              type='button'
+              className='login-btn'
+              onClick={() => onLoginClicked(passWord, userName)}
+            >
               {isLogin ? 'Login' : 'Sign up'}
             </button>
           </div>

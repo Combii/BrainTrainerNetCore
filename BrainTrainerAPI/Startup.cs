@@ -13,6 +13,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using AutoMapper;
+using Newtonsoft.Json;
 
 namespace BrainTrainerAPI
 {
@@ -71,6 +72,9 @@ namespace BrainTrainerAPI
             services.AddDbContext<DataContext>(x =>
             x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrainTrainerAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20191201165227_InitialCreate")]
+    [Migration("20191201170303_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

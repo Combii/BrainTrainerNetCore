@@ -28,6 +28,10 @@ namespace BrainTrainerAPI.Data
                     .HasForeignKey(ur => ur.UserId)
                     .IsRequired();
             });
+
+            builder.Entity<User>()
+                .HasMany(c => c.HighScores)
+                .WithOne(e => e.User);
         }
     }
 }

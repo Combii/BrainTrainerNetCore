@@ -7,7 +7,7 @@ import HighScoreList from './Component/HighScore/HighScoreList';
 import asyncComponent from './hoc/asyncComponent';
 import { loadLocalHighscores } from './Utils/localHighscores';
 import Login from './Component/Login/Login';
-import { startLogin } from './actions/auth';
+import { startLogin, startRegister } from './actions/auth';
 
 const asyncGameSection = asyncComponent(() =>
   import('./Container/GameSection')
@@ -24,9 +24,17 @@ class BrainTrainer extends Component {
     }));
   };
 
-  logIn = () => {
-    this.props.history.push('/menu');
+  logIn = (username, password) => {
+    this.props.onLogin(username,password)
+      .then(() => this.props.history.push('/menu'))
+      .catch(err => alert('wrong password or username bruh :0)'))
   };
+
+  register = (username, password) => {
+    this.props.onRegister(username,password)
+    .then(() => this.props.history.push('/menu'))
+    .catch(err => alert(err))
+  }
 
   difficultySelected = difficulty => {
     this.props.onDifficultySelected(difficulty);
@@ -46,7 +54,7 @@ class BrainTrainer extends Component {
           isLogin: this.state.isLoginMode,
           toggleLogin: this.toggleLoginMode,
           login: this.logIn,
-          onLoginClicked: this.props.onLoginClicked
+          register: this.register
         }
       },
       {
@@ -91,8 +99,10 @@ class BrainTrainer extends Component {
 const mapDispatchToProps = dispatch => ({
   onDifficultySelected: difficulty =>
     dispatch({ difficulty, type: 'SET_DIFFICULTY' }),
-  onLoginClicked: (username, password) =>
-    dispatch(startLogin(username, password))
+  onLogin: (username, password) =>
+    dispatch(startLogin(username, password)),
+  onRegister: (username, password) =>
+    dispatch(startRegister(username, password))
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(BrainTrainer));

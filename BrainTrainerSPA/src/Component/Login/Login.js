@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { connect } from 'react-redux';
-import Button from '../../UI/Button/Button';
 
 const Login = ({ isLogin, toggleLogin, login, register}) => {
   const [password, setPassword] = useState('');

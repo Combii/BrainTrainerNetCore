@@ -154,8 +154,8 @@ class GameSection extends Component {
 
 }
 
-const mapStateToProps = props => ({
-    difficulty: props.difficulty
+const mapStateToProps = ({braintrainer}) => ({
+    difficulty: braintrainer.difficulty
 });
 
 export default connect(mapStateToProps)(GameSection)

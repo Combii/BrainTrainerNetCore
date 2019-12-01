@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { connect } from 'react-redux';
-import Button from '../../UI/Button/Button';
 
-const Login = ({ isLogin, toggleLogin, login, onLoginClicked }) => {
-  const [passWord, setPassword] = useState('');
-  const [userName, setUsername] = useState('');
+const Login = ({ isLogin, toggleLogin, login, register}) => {
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
   return (
     <div className='root-container'>
       <div className='box-container'>
@@ -41,7 +39,7 @@ const Login = ({ isLogin, toggleLogin, login, onLoginClicked }) => {
             <button
               type='button'
               className='login-btn'
-              onClick={() => onLoginClicked(passWord, userName)}
+              onClick={() => isLogin ? login(username,password) : register(username,password)}
             >
               {isLogin ? 'Login' : 'Sign up'}
             </button>

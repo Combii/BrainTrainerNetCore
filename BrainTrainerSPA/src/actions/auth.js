@@ -7,7 +7,7 @@ export const login = token => ({
   token
 });
 
-export const startRegister = (password, username) => dispatch => {
+export const startRegister = (username, password) => dispatch => {
   return axios
     .post(`${baseUrl}/api/auth/register`, {
       username,
@@ -16,7 +16,7 @@ export const startRegister = (password, username) => dispatch => {
     .then(data => dispatch(login(data.data.token)));
 };
 
-export const startLogin = (password, username) => dispatch => {
+export const startLogin = (username, password) => dispatch => {
   return axios
     .post(`${baseUrl}/api/auth/login`, {
       username,

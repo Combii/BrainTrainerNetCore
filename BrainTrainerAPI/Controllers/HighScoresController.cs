@@ -13,6 +13,7 @@ namespace BrainTrainerAPI.Controllers
     [ApiController]
     public class HighScoresController : ControllerBase
     {
+        private readonly IHighScoreRepository _repo;
         private readonly DataContext _context;
         public HighScoresController(DataContext context)
         {
@@ -30,19 +31,23 @@ namespace BrainTrainerAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetHighscore(int id)
         {
-            var value = await _context.HighScores.FirstOrDefaultAsync(x => x.Id == id);
+            var highScore = await _repo.GetHighScore(id);
 
-            return Ok(value);
+            return Ok(highScore);
         }
 
         [HttpPost]
-        public async Task<ActionResult<HighScore>> PostHighscore(HighScore highScore)
+        public IActionResult PostHighscore(int Score, int UserId)
         {
-            _context.HighScores.Add(highScore);
-            await _context.SaveChangesAsync();
+            // var user = await _repo.GetUser(UserId, false);
 
-            //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
-            return CreatedAtAction(nameof(GetHighscore), new { id = highScore.Id }, highScore);
+            // var highScore = new HighScore(Score, user);
+            
+            // _context.HighScores.Add(highScore);
+            // await _context.SaveChangesAsync();
+
+            // return Ok(highScore);
+            return BadRequest();
         }
 
 

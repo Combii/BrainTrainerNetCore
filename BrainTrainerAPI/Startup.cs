@@ -30,6 +30,7 @@ namespace BrainTrainerAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IBrainTrainerRepository, BrainTrainerRepository>();
+            services.AddScoped<IHighScoreRepository, HighScoreRepository>();
 
             IdentityBuilder builder = services.AddIdentityCore<User>(opt =>
             {

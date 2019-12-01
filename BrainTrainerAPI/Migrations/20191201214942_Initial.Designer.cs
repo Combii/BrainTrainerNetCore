@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrainTrainerAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20191201170303_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20191201214942_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,6 +26,9 @@ namespace BrainTrainerAPI.Migrations
 
                     b.Property<int>("Score")
                         .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("TimeCreated")
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("UserId")
                         .HasColumnType("INTEGER");

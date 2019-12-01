@@ -1,12 +1,14 @@
 using System.Threading.Tasks;
 using BrainTrainerAPI.Data;
 using BrainTrainerAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BrainTrainerAPI.Controllers
 {
 
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class HighScoresController : ControllerBase

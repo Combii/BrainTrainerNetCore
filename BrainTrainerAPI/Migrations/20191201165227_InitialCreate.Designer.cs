@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrainTrainerAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20191130140738_Identity")]
-    partial class Identity
+    [Migration("20191201165227_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,12 @@ namespace BrainTrainerAPI.Migrations
                     b.Property<int>("Score")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("HighScores");
                 });
@@ -221,6 +226,13 @@ namespace BrainTrainerAPI.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("BrainTrainerAPI.Models.HighScore", b =>
+                {
+                    b.HasOne("BrainTrainerAPI.Models.User", "User")
+                        .WithMany("HighScores")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("BrainTrainerAPI.Models.UserRole", b =>

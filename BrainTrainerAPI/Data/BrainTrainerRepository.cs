@@ -28,5 +28,10 @@ namespace BrainTrainerAPI.Data
             return user;
         }
 
+        public async Task<IEnumerable<User>> GetUsers()
+        {
+            var users = await _context.Users.ToListAsync();
+            return users;
+        }
     }
 }

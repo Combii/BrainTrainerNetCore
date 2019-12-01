@@ -6,6 +6,7 @@ namespace BrainTrainerAPI.Data
 {
     public interface IBrainTrainerRepository
     {
+        Task<IEnumerable<User>> GetUsers();
          Task<User> GetUser(int id, bool isCurrentUser);
          
     }

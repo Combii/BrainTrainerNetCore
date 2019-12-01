@@ -4,5 +4,6 @@ namespace BrainTrainerAPI.Models
     {
         public int Id { get; set; }
         public int Score { get; set; }
+        public User User { get; set; }
     }
 }

@@ -25,7 +25,12 @@ namespace BrainTrainerAPI.Migrations
                     b.Property<int>("Score")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("HighScores");
                 });
@@ -219,6 +224,13 @@ namespace BrainTrainerAPI.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("BrainTrainerAPI.Models.HighScore", b =>
+                {
+                    b.HasOne("BrainTrainerAPI.Models.User", "User")
+                        .WithMany("HighScores")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("BrainTrainerAPI.Models.UserRole", b =>

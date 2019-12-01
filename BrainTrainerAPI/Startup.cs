@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using AutoMapper;
 
 namespace BrainTrainerAPI
 {
@@ -54,6 +55,8 @@ namespace BrainTrainerAPI
                  };
              });
 
+             services.AddAutoMapper(typeof(DataContext).Assembly);
+
              services.AddMvc(options => 
                 {
                     var policy = new AuthorizationPolicyBuilder()
@@ -76,7 +79,7 @@ namespace BrainTrainerAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

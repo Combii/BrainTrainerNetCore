@@ -7,6 +7,7 @@ namespace BrainTrainerAPI.Models
         public int Id { get; set; }
         public int Score { get; set; }
         public User User { get; set; }
+        public int UserId { get; set; }
         public DateTime TimeCreated { get; set; }
 
         public HighScore()

@@ -23,7 +23,9 @@ namespace BrainTrainerAPI.Data
             if (isCurrentUser)
                 query = query.IgnoreQueryFilters();
 
-            var user = await query.FirstOrDefaultAsync(u => u.Id == id);
+            var user = await query
+            .Include(p => p.HighScores)
+            .FirstOrDefaultAsync(u => u.Id == id);
 
             return user;
         }

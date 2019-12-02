@@ -45,13 +45,7 @@ namespace BrainTrainerAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> PostHighscore(HighScoreDto highScoreDto)
         {
-            var user = await _BrainTrainerRepo.GetUser(highScoreDto.UserId, false);
-
-            var highScore = new HighScore(highScoreDto.Score, user, DateTime.Now);
-
-            user.HighScores.Add(highScore);
-
-            await _context.SaveChangesAsync();
+            await _HighScoreRepo.PostHighscore(highScoreDto);
             return Ok();
         }
 

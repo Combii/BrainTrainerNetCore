@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrainTrainerAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20191201214942_Initial")]
+    [Migration("20191202105611_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,13 +24,16 @@ namespace BrainTrainerAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Score")
+                    b.Property<int>("CorrectAnswers")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("TimeCreated")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("TotalAnswers")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -235,7 +238,9 @@ namespace BrainTrainerAPI.Migrations
                 {
                     b.HasOne("BrainTrainerAPI.Models.User", "User")
                         .WithMany("HighScores")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("BrainTrainerAPI.Models.UserRole", b =>

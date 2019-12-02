@@ -160,8 +160,9 @@ namespace BrainTrainerAPI.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Score = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: true),
+                    CorrectAnswers = table.Column<int>(nullable: false),
+                    TotalAnswers = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false),
                     TimeCreated = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -172,7 +173,7 @@ namespace BrainTrainerAPI.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

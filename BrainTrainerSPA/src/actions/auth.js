@@ -2,9 +2,10 @@ import axios from 'axios';
 
 const baseUrl = 'http://localhost:5000';
 
-export const login = token => ({
+export const login = (token,userId) => ({
   type: 'LOGIN',
-  token
+  token,
+  userId
 });
 
 export const startRegister = (username, password) => dispatch => {
@@ -13,7 +14,7 @@ export const startRegister = (username, password) => dispatch => {
       username,
       password
     })
-    .then(data => dispatch(login(data.data.token)));
+    .then(data => {dispatch(login(data.data.token,data.data.user.id))});
 };
 
 export const startLogin = (username, password) => dispatch => {

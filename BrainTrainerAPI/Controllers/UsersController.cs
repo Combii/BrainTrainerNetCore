@@ -35,13 +35,9 @@ namespace BrainTrainerAPI.Controllers
         }
 
         [HttpGet("{id}", Name = "GetUser")]
-        public async Task<IActionResult> GetUser(int id)
+        public IActionResult GetUser(int id)
         {
-            var isCurrentUser = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value) == id;
-            
-            var user = await _repo.GetUser(id, isCurrentUser);
-
-            var userToReturn = _mapper.Map<UserForDetailedDto>(user);
+            var userToReturn = _repo.GetUser(id, false);
 
             return Ok(userToReturn);
         }

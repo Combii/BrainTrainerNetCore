@@ -1,5 +1,7 @@
+using System;
 using System.Threading.Tasks;
 using BrainTrainerAPI.Data;
+using BrainTrainerAPI.Dtos;
 using BrainTrainerAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,11 +15,15 @@ namespace BrainTrainerAPI.Controllers
     [ApiController]
     public class HighScoresController : ControllerBase
     {
-        private readonly IHighScoreRepository _repo;
+        private readonly IHighScoreRepository _HighScoreRepo;
+        private readonly IBrainTrainerRepository _BrainTrainerRepo;
         private readonly DataContext _context;
-        public HighScoresController(DataContext context)
+        public HighScoresController(DataContext context, 
+        IBrainTrainerRepository BrainTrainerRepo, IHighScoreRepository HighScoreRepo)
         {
             _context = context;
+            _BrainTrainerRepo = BrainTrainerRepo;
+            _HighScoreRepo = HighScoreRepo;
         }
 
         [HttpGet]
@@ -31,23 +37,27 @@ namespace BrainTrainerAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetHighscore(int id)
         {
-            var highScore = await _repo.GetHighScore(id);
+            var highScore = await _HighScoreRepo.GetHighScore(id);
 
             return Ok(highScore);
         }
 
         [HttpPost]
-        public IActionResult PostHighscore(int Score, int UserId)
+        public async Task<IActionResult> PostHighscore(HighScoreDto highScoreDto)
         {
-            // var user = await _repo.GetUser(UserId, false);
+            System.Console.WriteLine("SCORE: " + highScoreDto.Score);
+            System.Console.WriteLine("UserID: " + highScoreDto.UserId);
 
-            // var highScore = new HighScore(Score, user);
+            var user = await _BrainTrainerRepo.GetUser(highScoreDto.UserId, false);
+
+            System.Console.WriteLine("USER USERNAME: " + user.UserName);
+
+            var highScore = new HighScore(highScoreDto.Score, user, DateTime.Now);
             
-            // _context.HighScores.Add(highScore);
-            // await _context.SaveChangesAsync();
+            user.HighScores.Add(highScore);
 
-            // return Ok(highScore);
-            return BadRequest();
+            await _context.SaveChangesAsync();
+            return Ok();
         }
 
 

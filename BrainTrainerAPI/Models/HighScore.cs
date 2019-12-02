@@ -12,10 +12,11 @@ namespace BrainTrainerAPI.Models
         public HighScore()
         {
         }
-        public HighScore(int Score, User User)
+        public HighScore(int Score, User User, DateTime TimeCreated)
         {
             this.Score = Score;
             this.User = User;
+            this.TimeCreated = TimeCreated;
         }
 
     }

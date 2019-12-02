@@ -46,13 +46,11 @@ namespace BrainTrainerAPI.Controllers
 
             var userToReturn = _mapper.Map<UserForDetailedDto>(userToCreate);
 
-            if (result.Succeeded)
-            {
-                return CreatedAtRoute("GetUser", 
-                    new { controller = "Users", id = userToCreate.Id }, userToReturn);
-            }
-
-            return BadRequest(result.Errors);
+            return Ok(new
+                {
+                    token = GenerateJwtToken(userToCreate).Result,
+                    user = userToReturn
+                });
         }
 
         [HttpPost("login")]

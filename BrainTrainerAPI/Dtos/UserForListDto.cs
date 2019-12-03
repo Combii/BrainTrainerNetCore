@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using BrainTrainerAPI.Models;
 
 namespace BrainTrainerAPI.Dtos
 {
@@ -6,6 +8,6 @@ namespace BrainTrainerAPI.Dtos
     {
         public int Id { get; set; }
         public string Username { get; set; }
-    
+        public virtual ICollection<HighScore> HighScores { get; set; }    
     }
 }

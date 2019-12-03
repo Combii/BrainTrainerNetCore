@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrainTrainerAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20191203111639_Initial")]
+    [Migration("20191203112124_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,8 +27,8 @@ namespace BrainTrainerAPI.Migrations
                     b.Property<int>("CorrectAnswers")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TimeBetweenClicksAverage")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("TimeBetweenClicksAverage")
+                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("TimeCreated")
                         .HasColumnType("TEXT");

@@ -25,8 +25,8 @@ namespace BrainTrainerAPI.Migrations
                     b.Property<int>("CorrectAnswers")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TimeBetweenClicksAverage")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("TimeBetweenClicksAverage")
+                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("TimeCreated")
                         .HasColumnType("TEXT");

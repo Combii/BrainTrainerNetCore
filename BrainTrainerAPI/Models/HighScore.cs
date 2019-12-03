@@ -11,12 +11,12 @@ namespace BrainTrainerAPI.Models
         public User User { get; set; }
         public int UserId { get; set; }
         public DateTime TimeCreated { get; set; }
-        public int TimeBetweenClicksAverage { get; set; }
+        public double TimeBetweenClicksAverage { get; set; }
 
         public HighScore()
         {
         }
-        public HighScore(int CorrectAnswers, int TotalAnswers, User User, DateTime TimeCreated, int TimeBetweenClicksArray)
+        public HighScore(int CorrectAnswers, int TotalAnswers, User User, DateTime TimeCreated, double TimeBetweenClicksArray)
         {
             this.CorrectAnswers = CorrectAnswers;
             this.TotalAnswers = TotalAnswers;

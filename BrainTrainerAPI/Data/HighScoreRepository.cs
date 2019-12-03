@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using BrainTrainerAPI.Dtos;
 using BrainTrainerAPI.Models;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,13 @@ namespace BrainTrainerAPI.Data
     {
         private readonly DataContext _context;
         private readonly IBrainTrainerRepository _BrainTrainerRepo;
-        public HighScoreRepository(DataContext context, IBrainTrainerRepository BrainTrainerRepo)
+        private readonly IMapper _mapper;
+
+        public HighScoreRepository(DataContext context, IBrainTrainerRepository BrainTrainerRepo, IMapper mapper)
         {
             _context = context;
             _BrainTrainerRepo = BrainTrainerRepo;
+            _mapper = mapper;
         }
         public async Task<HighScore> GetHighScore(int id)
         {
@@ -25,9 +29,9 @@ namespace BrainTrainerAPI.Data
         {
             var user = await _BrainTrainerRepo.GetUser(highScoreDto.UserId, false);
 
-            var highScore = new HighScore(highScoreDto.CorrectAnswers, highScoreDto.TotalAnswers, user, DateTime.Now);
+            var highscore = _mapper.Map<HighScore>(highScoreDto);
 
-            user.HighScores.Add(highScore);
+            user.HighScores.Add(highscore);
 
             await _context.SaveChangesAsync();
 

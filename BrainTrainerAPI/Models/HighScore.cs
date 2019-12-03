@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace BrainTrainerAPI.Models
 {
@@ -10,16 +11,18 @@ namespace BrainTrainerAPI.Models
         public User User { get; set; }
         public int UserId { get; set; }
         public DateTime TimeCreated { get; set; }
+        public int TimeBetweenClicksAverage { get; set; }
 
         public HighScore()
         {
         }
-        public HighScore(int CorrectAnswers, int TotalAnswers, User User, DateTime TimeCreated)
+        public HighScore(int CorrectAnswers, int TotalAnswers, User User, DateTime TimeCreated, int TimeBetweenClicksArray)
         {
             this.CorrectAnswers = CorrectAnswers;
             this.TotalAnswers = TotalAnswers;
             this.User = User;
             this.TimeCreated = TimeCreated;
+            this.TimeBetweenClicksAverage = TimeBetweenClicksArray;
         }
 
     }

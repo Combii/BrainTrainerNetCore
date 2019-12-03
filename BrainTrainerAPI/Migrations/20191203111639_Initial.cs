@@ -163,7 +163,8 @@ namespace BrainTrainerAPI.Migrations
                     CorrectAnswers = table.Column<int>(nullable: false),
                     TotalAnswers = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
-                    TimeCreated = table.Column<DateTime>(nullable: false)
+                    TimeCreated = table.Column<DateTime>(nullable: false),
+                    TimeBetweenClicksAverage = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

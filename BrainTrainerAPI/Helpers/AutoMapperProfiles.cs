@@ -12,6 +12,12 @@ namespace BrainTrainerAPI.Helpers
             CreateMap<User, UserForListDto>();
             CreateMap<User, UserForDetailedDto>();
             CreateMap<UserForRegisterDto, User>();
+            CreateMap<HighScoreDto, HighScore>()
+            .ForMember(h=>h.TimeBetweenClicksAverage, 
+            m=>m.MapFrom(u=>u.TimeBetweenClicksArray.Average()));
+
+
+            
         }
     }
 }

@@ -29,9 +29,9 @@ namespace BrainTrainerAPI.Controllers
         {
             var users = await _repo.GetUsers();
 
-            //var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+            var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
 
-            return Ok(users);
+            return Ok(usersToReturn);
         }
 
         [HttpGet("{id}", Name = "GetUser")]

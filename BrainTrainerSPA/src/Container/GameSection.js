@@ -27,7 +27,9 @@ class GameSection extends Component {
       gameEnded: false,
       numOfQuestions: 0,
       correctAnswers: 0,
-      toHighscores: false
+      toHighscores: false,
+      clickedAt:null,
+      timeBetweenClicks:null
     };
 
     this.generator = new QuestionGenerator(this.props.difficulty);
@@ -39,7 +41,9 @@ class GameSection extends Component {
       gameEnded: false,
       numOfQuestions: 0,
       correctAnswers: 0,
-      timeLeft: 3
+      timeLeft: 4,
+      timeBetweenClicks:[],
+      clickedAt : new Date().getTime()
     });
     this.startTimer();
     this.setNewNumbersAndQuestion();
@@ -68,7 +72,8 @@ class GameSection extends Component {
     const body = {
       userId: this.props.userId,
       correctAnswers: this.state.correctAnswers,
-      totalAnswers: this.state.numOfQuestions
+      totalAnswers: this.state.numOfQuestions,
+      timeBetweenClicksArray : this.state.timeBetweenClicks
     };
 
     console.log(body);
@@ -85,9 +90,15 @@ class GameSection extends Component {
       correctAnswers:
         squareValue === this.state.correctAnswer
           ? prevState.correctAnswers + 1
-          : prevState.correctAnswers
+          : prevState.correctAnswers,
+      timeBetweenClicks:[
+        (new Date().getTime() - prevState.clickedAt)/1000,
+        ...prevState.timeBetweenClicks        
+      ],
+      clickedAt: new Date().getTime()
     }));
-
+    console.log(this.state.timeBetweenClicks);
+    
     this.setNewNumbersAndQuestion();
   };
 

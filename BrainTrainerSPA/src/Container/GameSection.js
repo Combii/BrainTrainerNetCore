@@ -76,12 +76,8 @@ class GameSection extends Component {
       timeBetweenClicksArray : this.state.timeBetweenClicks
     };
 
-    console.log(body);
-    
-
-    axios.post('http://localhost:5000/api/highscores',body);
-
-    this.setState(() => ({ toHighscores: true }));
+    axios.post('http://localhost:5000/api/highscores',body)
+      .then(() => this.setState(() => ({ toHighscores: true })));
   };
 
   squareClickedHandler = squareValue => {

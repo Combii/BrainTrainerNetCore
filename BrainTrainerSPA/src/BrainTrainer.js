@@ -72,9 +72,6 @@ class BrainTrainer extends Component {
       {
         path: '/highscores',
         component: HighScoreList,
-        componentProps: {
-          scores: loadLocalHighscores()
-        }
       }
     ];
 
@@ -104,5 +101,7 @@ const mapDispatchToProps = dispatch => ({
   onRegister: (username, password) =>
     dispatch(startRegister(username, password))
 });
+
+
 
 export default withRouter(connect(null, mapDispatchToProps)(BrainTrainer));

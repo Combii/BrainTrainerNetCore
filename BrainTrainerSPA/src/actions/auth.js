@@ -23,5 +23,5 @@ export const startLogin = (username, password) => dispatch => {
       username,
       password
     })
-    .then(data => dispatch(login(data.data.token)));
+    .then(data => dispatch(login(data.data.token,data.data.user.id)));
 };

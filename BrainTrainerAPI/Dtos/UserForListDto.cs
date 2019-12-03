@@ -8,6 +8,6 @@ namespace BrainTrainerAPI.Dtos
     {
         public int Id { get; set; }
         public string Username { get; set; }
-        public virtual ICollection<HighScore> HighScores { get; set; }    
+        public virtual ICollection<HighScoreForReturnDto> HighScores { get; set; }    
     }
 }

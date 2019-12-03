@@ -15,6 +15,7 @@ namespace BrainTrainerAPI.Helpers
             CreateMap<HighScoreDto, HighScore>()
             .ForMember(h=>h.TimeBetweenClicksAverage, 
             m=>m.MapFrom(u=>u.TimeBetweenClicksArray.Average()));
+            CreateMap<HighScore,HighScoreForReturnDto>();
 
 
             

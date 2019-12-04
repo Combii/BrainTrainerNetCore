@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using AutoMapper;
 using BrainTrainerAPI.Dtos;
@@ -14,7 +15,7 @@ namespace BrainTrainerAPI.Helpers
             CreateMap<UserForRegisterDto, User>();
             CreateMap<HighScoreDto, HighScore>()
             .ForMember(h=>h.TimeBetweenClicksAverage, 
-            m=>m.MapFrom(u=>u.TimeBetweenClicksArray.Average()));
+            m=>m.MapFrom(u=>Math.Round(u.TimeBetweenClicksArray.Average(),2)));
             CreateMap<HighScore,HighScoreForReturnDto>();
 
 

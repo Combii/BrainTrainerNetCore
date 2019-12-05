@@ -46,11 +46,15 @@ namespace BrainTrainerAPI.Controllers
 
             var userToReturn = _mapper.Map<UserForDetailedDto>(userToCreate);
 
-            return Ok(new
-                {
-                    token = GenerateJwtToken(userToCreate).Result,
-                    user = userToReturn
-                });
+            
+            if(result.Succeeded) 
+            {
+                await _signInManager.SignInAsync(userToCreate,true);
+                return Ok();
+            }
+
+            return BadRequest();
+
         }
 
         [HttpPost("login")]
@@ -60,6 +64,8 @@ namespace BrainTrainerAPI.Controllers
 
             var result = await _signInManager
                 .CheckPasswordSignInAsync(user, userForLoginDto.Password, false);
+
+            
 
             if (result.Succeeded)
             {

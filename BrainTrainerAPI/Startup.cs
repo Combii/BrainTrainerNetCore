@@ -32,19 +32,8 @@ namespace BrainTrainerAPI
             services.AddScoped<IBrainTrainerRepository, BrainTrainerRepository>();
             services.AddScoped<IHighScoreRepository, HighScoreRepository>();
 
-            IdentityBuilder builder = services.AddIdentityCore<User>(opt =>
-            {
-                opt.Password.RequireDigit = false;
-                opt.Password.RequiredLength = 4;
-                opt.Password.RequireNonAlphanumeric = false;
-                opt.Password.RequireUppercase = false;
-            });
-
-            builder = new IdentityBuilder(builder.UserType, typeof(Role), builder.Services);
-            builder.AddEntityFrameworkStores<DataContext>();
-            builder.AddRoleValidator<RoleValidator<Role>>();
-            builder.AddRoleManager<RoleManager<Role>>();
-            builder.AddSignInManager<SignInManager<User>>();
+           services.AddIdentity<User,IdentityRole>()
+            .AddEntityFrameworkStores<DataContext>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
              .AddJwtBearer(options =>
